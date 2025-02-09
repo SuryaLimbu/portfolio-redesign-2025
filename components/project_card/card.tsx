@@ -31,7 +31,7 @@ export default function ProjectCard({
             <ArrowUpRight className=" text-sm" />
           </a>
         ) : (
-          <span className="uppercase text-xs bg-green-600 rounded-3xl py-1 px-2">
+          <span className="uppercase text-xs bg-green-600 rounded-3xl py-1 px-2 text-background">
             in progress
           </span>
         )}

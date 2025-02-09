@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -29,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 text-base space-y-4`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <ThemeProvider
           attribute="class"
@@ -37,8 +36,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-           <Navbar />
-          {children}
+          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 text-base space-y-4">
+            <Navbar />
+            {children}
+          </div>
+
           <Analytics />
         </ThemeProvider>
       </body>

@@ -73,7 +73,7 @@ body {
 
 .card_bg{
   
-  @apply -z-10  backdrop-opacity-25 bg-gradient-to-tr dark:from-black/50 dark:to-black/5 border-2 rounded-3xl border-black/5 dark:border-white/5;
+  @apply   backdrop-opacity-25 bg-gradient-to-tr dark:from-black/50 dark:to-black/5 border-2 rounded-3xl border-black/5 dark:border-white/5;
 }
 
 

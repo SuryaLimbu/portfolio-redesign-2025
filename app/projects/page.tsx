@@ -1,3 +1,4 @@
+'use client'
 import ProjectCard from "@/components/project_card/card";
 import React from "react";
 

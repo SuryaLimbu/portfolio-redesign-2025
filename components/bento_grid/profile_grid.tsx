@@ -1,11 +1,11 @@
 // import Image from "next/image";
-import { MagicCard } from "../ui/magic-card";
-import { useTheme } from "next-themes";
+// import { MagicCard } from "../ui/magic-card";
+// import { useTheme } from "next-themes";
 import { UserRound } from "lucide-react";
 // import Link from "next/link";
 // import { Button } from "../ui/button";
 export default function ProfileGrid() {
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
   const GithubIcon = (
     <svg height="30" width="30" className="" viewBox="0 0 128 128">
       <g fill="currentColor">

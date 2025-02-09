@@ -1,18 +1,19 @@
 import Image from "next/image";
 import ProfileGrid from "./profile_grid";
 import { VelocityScroll } from "../ui/scroll-based-velocity";
-import { MagicCard } from "../ui/magic-card";
+// import { MagicCard } from "../ui/magic-card";
 import { AnimatedGridPattern } from "../magicui/animated-grid-pattern";
 import { cn } from "@/lib/utils";
 
-import { useTheme } from "next-themes";
+// import { useTheme } from "next-themes";
 import { Meteors } from "../meteors";
 // import { OrbitingCircles } from "../magicui/orbiting-circles";
 import OribitingSkillsCircles from "./oribitingSkillsCircles";
 import { DownloadIcon, EyeIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function BentoGrid() {
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
   return (
     <div className="grid gap-10">
       {/* first col */}
@@ -46,7 +47,7 @@ export default function BentoGrid() {
           repeatDelay={1}
           className={cn(
             "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-            "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
+            "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12 -z-10"
           )}
         />
       </div>
@@ -59,7 +60,7 @@ export default function BentoGrid() {
               <b>portfolio ⭐ </b>
             </VelocityScroll>
           </div>
-          <div className="dark:bg-background/5  card_bg rounded-full flex items-center justify-between px-10 py-4 overflow-hidden ">
+          <div className="dark:bg-background/5  card_bg rounded-full flex items-center justify-between px-10 overflow-hidden ">
             <div className="flex flex-col uppercase">
               <span className=" opacity-50">2025 cv</span>
               <h1 className=" font-bold text-2xl">Resume</h1>
@@ -80,20 +81,47 @@ export default function BentoGrid() {
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-2 sm:row-span-3  gap-8">
-            <div className="dark:bg-background/5 rounded-3xl p-4 card_bg">
-              <Image src={``} width={100} height={100} alt="cover" />
-              <h2 className="text-sm font-normal uppercase opacity-50">
-                More about me
-              </h2>
-              <h1 className=" text-lg font-medium">Credentials</h1>
+          <div className="grid grid-cols-2 sm:row-span-3  gap-6">
+            <div className="dark:bg-background/5 rounded-3xl p-4 card_bg grid grid-rows-3 gap-y-4">
+              <div className="grid row-span-2 items-center justify-center">
+                <Image
+                  src={`/bg1.png`}
+                  width={130}
+                  height={150}
+                  alt="cover"
+                  className=""
+                />
+              </div>
+              <Link href="/projects" className="cursor-pointer">
+                <div>
+                  <h2 className="text-sm font-normal uppercase opacity-50">
+                    About me
+                  </h2>
+                  <h1 className=" text-lg font-medium">Credentials</h1>
+                </div>
+              </Link>
             </div>
-            <div className="dark:bg-background/5 rounded-3xl p-4 card_bg">
-              <Image src={``} width={100} height={100} alt="cover" />
-              <h2 className="text-sm font-normal uppercase opacity-50">
-                Showcase
-              </h2>
-              <h1 className=" text-lg font-medium">Projects</h1>
+            <div className="dark:bg-background/5 rounded-3xl p-4 card_bg grid grid-rows-3 gap-y-4 z-auto">
+              <div className="grid row-span-2 items-center justify-center gap-y-4">
+                <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center text-xl font-semibold leading-none text-transparent dark:from-white dark:to-black ">
+                  My Projects
+                </span>
+                <Image
+                  src="/Graphic-Web-Design.png"
+                  width={300}
+                  height={200}
+                  alt="project image"
+                />
+              </div>
+              <Link href="/projects">
+                <div>
+                  {/* <Image src={`/bg1.png`} width={100} height={100} alt="cover" /> */}
+                  <h2 className="text-sm font-normal uppercase opacity-50">
+                    Showcase
+                  </h2>
+                  <h1 className=" text-lg font-medium">Projects</h1>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

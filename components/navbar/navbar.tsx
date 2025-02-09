@@ -1,13 +1,17 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ModeToggle } from "../mode-toggle";
 import { useTheme } from "next-themes";
-import { MagicCard } from "../ui/magic-card";
+// import { MagicCard } from "../ui/magic-card";
 
 export default function Navbar() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  const darkLogo = "/logo/logo.png";
+  const lightLogo = "/logo/logo-light.png";
   const menuItems = [
     { label: "All", href: "/" },
     { label: "Projects", href: "/projects" },
@@ -20,13 +24,22 @@ export default function Navbar() {
       href: "/skills",
     },
   ];
+  // Ensure the component mounts before rendering
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <>
       <div className="sticky grid grid-flow-col py-6 justify-between z-10 items-center">
         <div>
           <Link href="/">
             {" "}
-            <Image src="/logo/logo.png" alt="logo" width={20} height={20} />
+            <Image
+              src={!mounted ? darkLogo : lightLogo}
+              alt="logo"
+              width={20}
+              height={20}
+            />
           </Link>
         </div>
         <div className="sm:flex items-center hidden card_bg p-2 backdrop-opacity-5">
