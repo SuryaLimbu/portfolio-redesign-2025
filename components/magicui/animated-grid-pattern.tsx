@@ -17,11 +17,11 @@ export interface AnimatedGridPatternProps
   height?: number;
   x?: number;
   y?: number;
-  strokeDasharray?: any;
+  strokeDasharray?: string | number;
   numSquares?: number;
   maxOpacity?: number;
   duration?: number;
-  repeatDelay?: number;
+  repeatDelay?: number; // Keep this prop but don't pass it to the DOM
 }
 
 export function AnimatedGridPattern({
@@ -34,7 +34,7 @@ export function AnimatedGridPattern({
   className,
   maxOpacity = 0.5,
   duration = 4,
-  repeatDelay = 0.5,
+  repeatDelay = 0.5, // Destructure but don't pass to DOM
   ...props
 }: AnimatedGridPatternProps) {
   const id = useId();
@@ -81,7 +81,7 @@ export function AnimatedGridPattern({
   // Resize observer to update container dimensions
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (const entry of entries) {
         setDimensions({
           width: entry.contentRect.width,
           height: entry.contentRect.height,
@@ -108,7 +108,7 @@ export function AnimatedGridPattern({
         "pointer-events-none absolute inset-0 h-full w-full fill-purple-400/30 stroke-purple-400/30 blur-sm",
         className,
       )}
-      {...props}
+      {...props} // `repeatDelay` is not included here
     >
       <defs>
         <pattern
@@ -136,6 +136,7 @@ export function AnimatedGridPattern({
               duration,
               repeat: 1,
               delay: index * 0.1,
+              repeatDelay, // Use `repeatDelay` here
               repeatType: "reverse",
             }}
             onAnimationComplete={() => updateSquarePosition(id)}

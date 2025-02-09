@@ -43,12 +43,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-2 bg-foreground/5 rounded-lg p-2">
+        <div className="hidden md:flex items-center space-x-2 bg-foreground/5 rounded-3xl p-2">
           {menuItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`px-4 py-2 rounded-xl transition-colors ${
+              className={`px-4 py-2 rounded-3xl transition-colors ${
                 pathname === item.href
                   ? "bg-foreground text-background"
                   : "hover:bg-foreground/10"

@@ -48,7 +48,7 @@ export default function ProfileGrid() {
               <div className="col-span-4 flex items-center gap-4">
                 <UserRound />
                 <div className="flex flex-col">
-                  <span className="">Hi, I'm Surya.</span>
+                  <span className="">Hi, I&apos;m Surya.</span>
                   <span className="text-sm uppercase opacity-50">
                     Front-end Designer
                   </span>
