@@ -4,62 +4,100 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { ModeToggle } from "../mode-toggle";
 import { useTheme } from "next-themes";
-// import { MagicCard } from "../ui/magic-card";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const darkLogo = "/logo/logo.png";
   const lightLogo = "/logo/logo-light.png";
   const menuItems = [
     { label: "All", href: "/" },
     { label: "Projects", href: "/projects" },
-    {
-      label: "Experience",
-      href: "/experience",
-    },
-    {
-      label: "Skills",
-      href: "/skills",
-    },
+    { label: "Experience", href: "/experience" },
+    { label: "Skills", href: "/skills" },
   ];
-  // Ensure the component mounts before rendering
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  if (!mounted) return null;
+
   return (
-    <>
-      <div className="sticky grid grid-flow-col py-6 justify-between z-10 items-center">
-        <div>
-          <Link href="/">
-            {" "}
-            <Image
-              src={!mounted ? darkLogo : lightLogo}
-              alt="logo"
-              width={20}
-              height={20}
-            />
-          </Link>
-        </div>
-        <div className="sm:flex items-center hidden card_bg p-2 backdrop-opacity-5">
-          <div className="flex gap-2 font-normal">
-            {menuItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                className=" px-4 py-2 rounded-3xl hover:bg-foreground/80  hover:text-background"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
+    <nav className="sticky top-0 py-6 bg-background/80 backdrop-blur-sm z-50">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link href="/" className="flex items-center">
+          <Image
+            src={resolvedTheme === "dark" ? darkLogo : lightLogo}
+            alt="Logo"
+            width={32}
+            height={32}
+            priority
+            className="h-8 w-auto"
+          />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-2 bg-foreground/5 rounded-lg p-2">
+          {menuItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`px-4 py-2 rounded-xl transition-colors ${
+                pathname === item.href
+                  ? "bg-foreground text-background"
+                  : "hover:bg-foreground/10"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
 
-        <div>
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center gap-4">
+          <ModeToggle />
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 rounded-lg hover:bg-foreground/10"
+            aria-label="Toggle navigation menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="absolute top-full left-0 right-0 md:hidden bg-background border-t">
+            <div className="container mx-auto p-4 flex flex-col items-center">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`w-full text-center py-3 rounded-lg transition-colors ${
+                    pathname === item.href
+                      ? "bg-foreground text-background"
+                      : "hover:bg-foreground/10"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Desktop Theme Toggle */}
+        <div className="hidden md:block">
           <ModeToggle />
         </div>
       </div>
-    </>
+    </nav>
   );
 }
