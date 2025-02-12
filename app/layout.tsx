@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 
-import BackgroundController from "@/components/BackgroundController";
 import CursorGradient from "@/components/CursorGradient";
 
 const geistSans = Geist({
@@ -40,12 +39,24 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {" "}
-        
           <CursorGradient
             size="w-[50vh] h-[50vh]"
             opacity={0.9}
+            colors={{ start: "#0D47A1", end: "rgba(13, 71, 161, 0)"}}
             pattern={{ color: "#000000", size: "5px" }}
           />
+          {/* <CursorGradient
+            size="w-[50vh] h-[50vh]"
+            colors={{
+              light: { start: "#E1F5FE", end: "rgba(225, 245, 254, 0)" },
+              dark: { start: "#0D47A1", end: "rgba(13, 71, 161, 0)" },
+            }}
+            opacity={{ light: 0.5, dark: 0.6 }}
+            pattern={{
+              light: { color: "#80DEEA", size: "16px" },
+              dark: { color: "#1E88E5", size: "12px" },
+            }}
+          /> */}
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 text-base space-y-4 z-10">
             <Navbar />
             {children}

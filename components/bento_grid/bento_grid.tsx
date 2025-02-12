@@ -2,8 +2,8 @@ import Image from "next/image";
 import ProfileGrid from "./profile_grid";
 import { VelocityScroll } from "../ui/scroll-based-velocity";
 // import { MagicCard } from "../ui/magic-card";
-import { AnimatedGridPattern } from "../magicui/animated-grid-pattern";
-import { cn } from "@/lib/utils";
+// import { AnimatedGridPattern } from "../magicui/animated-grid-pattern";
+// import { cn } from "@/lib/utils";
 
 // import { useTheme } from "next-themes";
 import { Meteors } from "../meteors";
