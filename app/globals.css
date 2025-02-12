@@ -8,13 +8,18 @@ body {
 
 @layer base {
   :root {
-  /* Light Green (adjust RGB values as needed) */
-  --brand-background-strong: 13 72 60;  /* Soft green */
-  --brand-on-background-weak: 100 160 100;  /* Subdued green for dots */
-  
-  /* Static Tokens */
-  --static-transparent: transparent;
-  --static-space-2: 5px; /* Larger dot spacing */
+    /* Light theme */
+    --gradient-start: #e5f4e3;
+    --gradient-end: transparent;
+    --pattern-color: #9dc183;
+    --static-space-2: 12px;
+
+    /* Dark theme */
+    .dark {
+      --gradient-start: #1a3a1e;
+      --gradient-end: transparent;
+      --pattern-color: #2d5b33;
+    }
 
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;

@@ -4,79 +4,87 @@
 import React, { useRef, useEffect } from 'react';
 
 interface CursorGradientProps {
-  /**
-   * Size of the gradient circle (in Tailwind width/height classes)
-   * @default 'w-96 h-96'
-   */
   size?: string;
-  
-  /**
-   * Gradient colors (CSS color values)
-   * @default { start: 'rgb(var(--brand-background-strong))', end: 'var(--static-transparent)' }
-   */
   colors?: {
-    start: string;
-    end: string;
+    light: {
+      gradientStart: string;
+      gradientEnd: string;
+      pattern: string;
+    };
+    dark: {
+      gradientStart: string;
+      gradientEnd: string;
+      pattern: string;
+    };
   };
-  
-  /**
-   * Opacity of the gradient (0-1)
-   * @default 0.5
-   */
-  opacity?: number;
-  
-  /**
-   * Smoothing factor for movement (0.01-0.5)
-   * Lower values = smoother but slower movement
-   * @default 0.1
-   */
+  opacity?: {
+    light: number;
+    dark: number;
+  };
   smoothing?: number;
-  
-  /**
-   * Background pattern configuration
-   * @default { color: 'rgb(var(--brand-on-background-weak))', size: 'var(--static-space-2)' }
-   */
-  pattern?: {
-    color: string;
-    size: string;
-  };
-  
-  /**
-   * Additional class names for the container
-   */
+  patternSize?: string;
   className?: string;
 }
 
-/**
- * A smooth, cursor-following gradient component with background pattern
- * 
- * @example
- * <CursorGradient
- *   size="w-64 h-64"
- *   colors={{ start: '#00FF00', end: 'transparent' }}
- *   opacity={0.7}
- *   smoothing={0.2}
- * />
- */
 const CursorGradient: React.FC<CursorGradientProps> = ({
   size = 'w-96 h-96',
   colors = {
-    start: 'rgb(var(--brand-background-strong))',
-    end: 'var(--static-transparent)'
+    light: {
+      gradientStart: '#e5f4e3',
+      gradientEnd: 'transparent',
+      pattern: '#9dc183'
+    },
+    dark: {
+      gradientStart: '#1a3a1e',
+      gradientEnd: 'transparent',
+      pattern: '#2d5b33'
+    }
   },
-  opacity = 0.5,
+  opacity = { light: 1, dark: 1},
   smoothing = 0.1,
-  pattern = {
-    color: 'rgb(var(--brand-on-background-weak))',
-    size: 'var(--static-space-2)'
-  },
+  patternSize = 'var(--static-space-2)',
   className = ''
 }) => {
   const gradientRef = useRef<HTMLDivElement>(null);
+  const patternRef = useRef<HTMLDivElement>(null);
   const pos = useRef({ x: 0, y: 0 });
   const targetPos = useRef({ x: 0, y: 0 });
   const dimensions = useRef({ width: 0, height: 0 });
 
+  // Theme detection
+  const getCurrentTheme = () => {
+    return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  };
+
+  // Update styles when theme changes
+  useEffect(() => {
+    const updateThemeStyles = () => {
+      const theme = getCurrentTheme();
+      if (gradientRef.current) {
+        gradientRef.current.style.background = `radial-gradient(
+          circle closest-side,
+          ${colors[theme].gradientStart} 0%,
+          ${colors[theme].gradientEnd} 100%
+        )`;
+        gradientRef.current.style.opacity = `${opacity[theme]}`;
+      }
+      if (patternRef.current) {
+        patternRef.current.style.backgroundImage = 
+          `radial-gradient(${colors[theme].pattern} 1px, transparent 1px)`;
+      }
+    };
+
+    const observer = new MutationObserver(updateThemeStyles);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    updateThemeStyles();
+    return () => observer.disconnect();
+  }, [colors, opacity]);
+
+  // Animation and movement logic
   useEffect(() => {
     const gradient = gradientRef.current;
     if (!gradient) return;
@@ -107,6 +115,7 @@ const CursorGradient: React.FC<CursorGradientProps> = ({
       targetPos.current = { x: e.clientX, y: e.clientY };
     };
 
+    // Initialize to center position
     targetPos.current = {
       x: window.innerWidth / 2,
       y: window.innerHeight / 2
@@ -126,24 +135,21 @@ const CursorGradient: React.FC<CursorGradientProps> = ({
     <div className={`fixed inset-0 -z-10 overflow-hidden ${className}`}>
       <div
         ref={gradientRef}
-        className={`absolute opacity-50 pointer-events-none aspect-square rounded-full will-change-transform ${size}`}
+        className={`absolute pointer-events-none aspect-square rounded-full will-change-transform ${size}`}
         style={{
-          opacity,
           left: '0',
           top: '0',
-          background: `radial-gradient(
-            circle closest-side,
-            ${colors.start} 0%,
-            ${colors.end} 100%
-          )`,
+          transition: 'opacity 300ms ease-out, background 300ms ease-out'
         }}
       />
       
       <div
-        className="absolute inset-0 opacity-20 pointer-events-none"
+        ref={patternRef}
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `radial-gradient(${pattern.color} 1px, transparent 1px)`,
-          backgroundSize: `${pattern.size} ${pattern.size}`,
+          opacity: 0.2,
+          backgroundSize: `${patternSize} ${patternSize}`,
+          transition: 'background-image 300ms ease-out'
         }}
       />
     </div>
