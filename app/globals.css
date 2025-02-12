@@ -8,6 +8,14 @@ body {
 
 @layer base {
   :root {
+  /* Light Green (adjust RGB values as needed) */
+  --brand-background-strong: 13 72 60;  /* Soft green */
+  --brand-on-background-weak: 100 160 100;  /* Subdued green for dots */
+  
+  /* Static Tokens */
+  --static-transparent: transparent;
+  --static-space-2: 5px; /* Larger dot spacing */
+
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -71,11 +79,9 @@ body {
   }
 }
 
-.card_bg{
-  
-  @apply   backdrop-opacity-25 bg-gradient-to-tr dark:from-black/50 dark:to-black/5 border-2 rounded-3xl border-black/5 dark:border-white/5;
+.card_bg {
+  @apply backdrop-opacity-25 bg-gradient-to-tr dark:from-black/50 dark:to-black/5 border-2 rounded-3xl border-black/5 dark:border-white/5;
 }
-
 
 /* bg */
 .header_viewport-80 {
@@ -108,15 +114,13 @@ body {
 .header_floating-langs-item-x-y {
   width: 4rem;
   height: 4rem;
-  background-color: rgba(255, 255, 255, .1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   justify-content: center;
   align-items: center;
   display: flex;
   transition: 0.3s linear;
 }
-
-
 
 #w-node-_075014fe-efc0-abea-636b-c4e1bbb9b8a8-c1f17d5b,
 #w-node-_139bb4bb-6e62-b5d9-d035-5d1df4c59e7b-c1f17d5b,
@@ -169,22 +173,22 @@ body {
 #w-node-_3b835b1a-1824-9106-d5c8-2727cec787dc-41b80a8c,
 #w-node-_2cee7884-8f2d-92e1-7c5a-ecde9b3cd807-41b80a8c {
   grid-area: span 1 / span 1 / span 1 / span 1;
-  
+
   /* transform: translate(0, 0); */
   /* transition: transform 0.6s linear; */
 }
 
-
-
 .header_floating-langs-item-x-y.is-blank-outline {
   will-change: transform;
-  transform: translate3d(1.77588rem, 1.41888rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform: translate3d(1.77588rem, 1.41888rem, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   transform-style: preserve-3d;
 }
 
 .header_floating-langs-item-x-y.is-blank-bright {
   will-change: transform;
-  transform: translate3d(1.77588rem, 1.41888rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform: translate3d(1.77588rem, 1.41888rem, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   transform-style: preserve-3d;
 }
 
@@ -194,32 +198,30 @@ body {
   transform-style: preserve-3d;
 } */
 
-
-
 .header_floating-langs-item-x-y.is-blank-dull {
   will-change: transform;
-  transform: translate3d(1.77588rem, 1.41888rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform: translate3d(1.77588rem, 1.41888rem, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   transform-style: preserve-3d;
 }
-
-
 
 .header_floating-langs-item-x-y.is-blank {
   will-change: transform;
-  transform: translate3d(1.77588rem, 1.41888rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform: translate3d(1.77588rem, 1.41888rem, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   transform-style: preserve-3d;
 }
 .header_floating-langs-item-x-y.is-blank-bright {
-  background-color: rgba(255, 255, 255, .05);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .header_floating-langs-item-x-y.is-blank-dull {
-  background-color: rgba(255, 255, 255, .02);
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .header_floating-langs-item-x-y.is-blank-outline {
   background-color: rgba(0, 0, 0, 0);
-  border: 1px solid rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header_floating-langs-item-x-y.is-blank {
@@ -230,7 +232,6 @@ body {
 .header_floating-langs-item-x-y.is-depth-1 {
   transform-style: preserve-3d;
   transform: translate3d(0, 0, 4rem);
-
 }
 
 .header_floating-langs-item-x-y.is-depth--1 {
@@ -265,11 +266,11 @@ body {
 }
 
 .header_floating-langs-item-z.header-floating-langs-item_faded {
-  opacity: .26;
+  opacity: 0.26;
 }
 
 .header_floating-langs-item-z.is-faded-mobile.is-behind-text {
-  opacity: .31;
+  opacity: 0.31;
 }
 
 .is-padding-top-only {
@@ -277,7 +278,7 @@ body {
 }
 
 .opacity-70 {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .header_ix-trigger {
@@ -292,16 +293,13 @@ body {
 .header_floating-langs-icon {
   width: 1.5rem;
   height: 1.5rem;
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, 0.6);
   flex: none;
   justify-content: center;
   align-items: stretch;
   display: flex;
 }
 
-
-
-
-.text-webkit-center{
+.text-webkit-center {
   text-align: -webkit-center;
 }

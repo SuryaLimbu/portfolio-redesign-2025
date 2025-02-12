@@ -40,7 +40,7 @@ export default function BentoGrid() {
         </div>
 
         {/* </MagicCard> */}
-        <AnimatedGridPattern
+        {/* <AnimatedGridPattern
           numSquares={30}
           maxOpacity={0.1}
           duration={3}
@@ -49,7 +49,7 @@ export default function BentoGrid() {
             "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
             "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12 -z-10"
           )}
-        />
+        /> */}
       </div>
       {/* second col */}
       <div className="grid sm:grid-cols-6 gap-10">

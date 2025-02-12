@@ -29,7 +29,8 @@ export default function Navbar() {
   if (!mounted) return null;
 
   return (
-    <nav className="sticky top-0 py-6 bg-background/80 backdrop-blur-sm z-50">
+    <nav className="sticky top-0 py-6 bg-background/80 backdrop-blur-sm z-50 -webkit-backdrop-filter: blur(4px);
+  position: -webkit-sticky">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <Image
@@ -43,7 +44,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-2 bg-foreground/5 rounded-3xl p-2">
+        <div className="hidden md:flex items-center space-x-2 bg-transparent rounded-3xl p-2">
           {menuItems.map((item) => (
             <Link
               key={item.href}
