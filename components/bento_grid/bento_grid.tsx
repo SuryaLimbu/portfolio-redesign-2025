@@ -92,7 +92,7 @@ export default function BentoGrid() {
                   className=""
                 />
               </div>
-              <Link href="/projects" className="cursor-pointer">
+              <Link href="/credential" className="cursor-pointer">
                 <div>
                   <h2 className="text-sm font-normal uppercase opacity-50">
                     About me

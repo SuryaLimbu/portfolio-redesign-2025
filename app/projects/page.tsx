@@ -32,8 +32,8 @@ export default function page() {
         <div className=" grid sm:grid-cols-2 gap-10">
           <div>
             <ProjectCard
-              link="https://necatikcl.dev/images/works/cryptosea.png"
-              title="cryptosea"
+              link="/projects/projectDetails/airlineProject"
+              title="Low-Cost Airline Booking System"
               description="Next gen bot for crypto-currencies."
               imageUrl="https://necatikcl.dev/images/works/cryptosea.png"
               
