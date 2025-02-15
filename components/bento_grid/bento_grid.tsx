@@ -1,19 +1,12 @@
 import Image from "next/image";
 import ProfileGrid from "./profile_grid";
 import { VelocityScroll } from "../ui/scroll-based-velocity";
-// import { MagicCard } from "../ui/magic-card";
-// import { AnimatedGridPattern } from "../magicui/animated-grid-pattern";
-// import { cn } from "@/lib/utils";
-
-// import { useTheme } from "next-themes";
 import { Meteors } from "../meteors";
-// import { OrbitingCircles } from "../magicui/orbiting-circles";
 import OribitingSkillsCircles from "./oribitingSkillsCircles";
 import { DownloadIcon, EyeIcon } from "lucide-react";
 import Link from "next/link";
 
 export default function BentoGrid() {
-  // const { theme } = useTheme();
   return (
     <div className="grid gap-10">
       {/* first col */}

@@ -58,7 +58,7 @@ export default function ProfileGrid() {
                 <div className="flex justify-center items-center mt-2">
                   <a
                     href="#"
-                    className=" bg-card border   rounded-xl bg-border p-1"
+                    className=" bg-card border   rounded-xl p-1"
                   >
                     {GithubIcon}
                   </a>
@@ -66,7 +66,7 @@ export default function ProfileGrid() {
                 <div className="flex justify-center items-center mt-2">
                   <a
                     href="#"
-                    className="bg-card border   rounded-xl bg-border p-1"
+                    className="bg-card border   rounded-xl p-1"
                   >
                     {LinkedInIcon}
                   </a>
