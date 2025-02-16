@@ -9,16 +9,16 @@ export default function page() {
       <div className="grid grid-flow-row gap-10 order-2 sm:order-1">
         <div>
           <ProjectCard
-            link={null}
-            title="cryptosea"
-            description="Next gen bot for crypto-currencies."
+            link="/projects/projectDetails/uniThrift"
+            title="Uni-Thrift"
+            description="Uni-Thrift: Secondhand Shop Platform"
             imageUrl="https://necatikcl.dev/images/works/cryptosea.png"
           />
         </div>
         <div>
           <ProjectCard
-            link={null}
-            title="cryptosea"
+            link="/projects/projectDetails/kms"
+            title="H&K Knowledge Management System"
             description="Next gen bot for crypto-currencies."
             imageUrl="https://necatikcl.dev/images/works/cryptosea.png"
           />
@@ -41,8 +41,8 @@ export default function page() {
           </div>
           <div>
             <ProjectCard
-              link={null}
-              title="cryptosea"
+              link="/projects/projectDetails/eVoting"
+              title="H&L E-Voting System"
               description="Next gen bot for crypto-currencies."
               imageUrl="https://necatikcl.dev/images/works/cryptosea.png"
             />
