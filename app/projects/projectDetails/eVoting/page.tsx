@@ -8,7 +8,7 @@ import {
   import { ScrollProgress } from "@/components/magicui/scroll-progress";
   import { Badge } from "@/components/ui/badge";
   import { Button } from "@/components/ui/button";
-  import { ChevronRight, ArrowUpRight, Github, ExternalLink } from "lucide-react";
+  import { ChevronRight, ArrowUpRight, ExternalLink } from "lucide-react";
   
   export default function Page() {
     return (
@@ -70,6 +70,7 @@ import {
                     >
                       <ExternalLink className="w-4 h-4" />
                       View Prototype Walkthrough
+                      
                     </a>
                   </Button>
                 </div>
@@ -232,7 +233,7 @@ import {
                   Testimonials
                 </h3>
                 <blockquote className="text-blue-700 italic">
-                  "The e-voting system is incredibly intuitive and accessible. The team did an excellent job balancing security with ease of use."
+                  &quot; The e-voting system is incredibly intuitive and accessible. The team did an excellent job balancing security with ease of use.&quot;
                   <br />
                   <span className="font-semibold">— Hargreaves Lansdown Stakeholder</span>
                 </blockquote>
