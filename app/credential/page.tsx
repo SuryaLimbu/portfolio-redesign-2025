@@ -1,95 +1,250 @@
-'use client'
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import React from "react";
-import { Dribbble, Instagram, Linkedin } from "lucide-react";
+import Image from "next/image";
+// import { ScrollProgress } from "@/components/magicui/scroll-progress";
+// import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+// import { ChevronRight, ArrowUpRight, Github, ExternalLink } from "lucide-react";
+import { Dribbble, Instagram } from "lucide-react";
+import HtmlIcon from "@/components/icons/html";
+import CssIcon from "@/components/icons/css";
+import NodeJs from "@/components/icons/nodeJs";
+import LinkedInIcon from "@/components/icons/linkedIn";
+import BehenceIcon from "@/components/icons/behence";
+import BootstrapIcon from "@/components/icons/bootstrap";
+import JavaScriptIcon from "@/components/icons/javascript";
+import LaravelIcon from "@/components/icons/laravel";
+import MongoDBIcon from "@/components/icons/mongodb";
+import MySQLIcon from "@/components/icons/mysql";
+import Nextjs from "@/components/icons/nextjs";
+import PhpIcon from "@/components/icons/php";
+import PostgreSQLIcon from "@/components/icons/postgresql";
+import PythonIcon from "@/components/icons/python";
+import ReactIcon from "@/components/icons/react";
+import TailwindIcon from "@/components/icons/tailwindcss";
 
-const width = 28;
+const width = 40;
+const height = 40;
 
-const height = 28;
-const Behence = () => (
-  <svg width={width} height={height} viewBox="0 0 128 128">
-   
-   
-    <path
-      fill="currentColor"
-      d="M52.63 60.28s10.5-.78 10.5-13.09-8.59-18.32-19.47-18.32H7.86v68.8h35.8s21.85.69 21.85-20.31c0 0 .96-17.08-12.88-17.08zm-29-19.18h20s4.87 0 4.87 7.16-2.86 8.2-6.11 8.2H23.64zm19.1 44.34H23.64V67.06h20s7.25-.1 7.25 9.45c.02 7.95-5.28 8.85-8.15 8.93zM94.66 46.38c-26.46 0-26.43 26.43-26.43 26.43s-1.82 26.3 26.43 26.3c0 0 23.54 1.34 23.54-18.29h-12.1s.4 7.4-11 7.4c0 0-12.11.81-12.11-12h35.65s3.87-29.84-23.98-29.84zm10.76 20.68h-22.6s1.48-10.6 12.11-10.6 10.49 10.6 10.49 10.6zM79.86 32.93h28.38v8.47H79.86z"
-    ></path>
-  </svg>
-);
-const contactData = [
-  {
-    icons: <Behence />,
-    name: "Behance",
-    url: "https://www.behance.net/suryamankedem",
-  },
-  {
-    icons: <Instagram />,
-    name: "Instagram",
-    url: "https://www.instagram.com/suryamankedem/",
-
-  },
-  {
-    icons: <Dribbble />,
-    name: "Dribbble",
-    url: "https://www.dribbble.com/suryamankedem",
-  },
-  {
-    icons: <Linkedin />,
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/suryamankedem/",
-  }
-];
-export default function page() {
+export default function Page() {
+  const contactData = [
+    {
+      icons: <BehenceIcon width={28} height={28} />,
+      name: "Behance",
+      url: "https://www.behance.net/suryamankedem",
+    },
+    {
+      icons: <Instagram />,
+      name: "Instagram",
+      url: "https://www.instagram.com/suryamankedem/",
+    },
+    {
+      icons: <Dribbble />,
+      name: "Dribbble",
+      url: "https://www.dribbble.com/suryamankedem",
+    },
+    {
+      icons: <LinkedInIcon width={28} height={28} />,
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/suryamankedem/",
+    },
+  ];
   return (
-    <div className="grid sm:grid-cols-3 gap-10">
-      <div className=" card_bg p-10">
-        <div className=" flex items-center justify-center">
-          <Image src="/_DSC8303.png" alt="profile" width={250} height={100} />
-        </div>
-        <div className="grid gap-2 text-center">
-          <h1 className="text-3xl font-bold">Surya Man Kedem</h1>
-          <p>
-            <a href="mailto:your-email@example.com" className="opacity-50">
-              @suryamankedem
-            </a>
-          </p>
-
-          <p className="flex gap-4 items-center justify-center">
-            {contactData.map((contact, index) => (
-              <a href={contact.url} key={index} className="card_bg p-1">
-                {contact.icons}
+    <div className="grid gap-10">
+      <div className="grid sm:grid-cols-3 gap-10">
+        {/* Left Section */}
+        <div className="card_bg p-10 max-h-fit">
+          <div className="flex items-center justify-center">
+            <Image src="/_DSC8303.png" alt="profile" width={250} height={100} />
+          </div>
+          <div className="grid gap-2 text-center">
+            <h1 className="text-3xl font-bold">Surya Man Kedem</h1>
+            <p>
+              <a href="mailto:suryamankedem@gmail.com" className="opacity-50">
+                @suryamankedem
               </a>
-            ))}
-          </p>
-          <Button className=" cursor-pointer z-50">
-            <a href="/contactUs">Contact Me</a>
-          </Button>
+            </p>
+            <p className="flex gap-4 items-center justify-center">
+              {contactData.map((contact, index) => (
+                <a href={contact.url} key={index} className="card_bg p-1">
+                  {contact.icons}
+                </a>
+              ))}
+            </p>
+            <Button className="cursor-pointer z-50">
+              <a href="/contactUs">Contact Me</a>
+            </Button>
+          </div>
+        </div>
+
+        {/* Right Section */}
+        <div className="grid sm:col-span-2 gap-10">
+          <div className="flex-1">
+            <h2 className="text-3xl font-bold mb-4">About Me</h2>
+            <p className="text-gray-400">
+              I am a full-stack developer specializing in front-end development
+              and UI/UX design. With expertise in JavaScript, React.js, Next.js,
+              and Tailwind CSS, I create scalable and user-friendly web
+              applications. My experience ranges from developing e-commerce
+              platforms to designing intuitive user interfaces.
+            </p>
+          </div>
+
+          {/* Skills Section */}
+          <section className="py-12">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold mb-6">Skills</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="card_bg p-6">
+                  <h3 className="text-xl font-semibold mb-2">
+                    Programming Languages
+                  </h3>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex bg-blue-600/5 rounded-3xl p-2 gap-4 justify-around">
+                      <JavaScriptIcon width={width} height={height} />
+                      <PythonIcon width={width} height={height} />
+                    </div>
+                    <div className="flex rounded-3xl p-2 gap-4 justify-around">
+                      <PhpIcon width={width} height={height} />
+                      <HtmlIcon width={width} height={height} />
+                      <CssIcon width={width} height={height} />
+                    </div>
+                  </div>
+                  {/* <ul className="list-disc ml-6">
+                    <li>JavaScript (Actively using)</li>
+                    <li>Python (Actively using)</li>
+                    <li>PHP (Proficient)</li>
+                    <li>HTML (Proficient)</li>
+                    <li>CSS (Proficient)</li>
+                  </ul> */}
+                </div>
+                <div className="card_bg p-6">
+                  <h3 className="text-xl font-semibold mb-4">
+                    Frameworks & Libraries
+                  </h3>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex bg-green-600/5 rounded-3xl p-2 gap-4 justify-around">
+                      <Nextjs width={width} height={height} />
+                      <TailwindIcon width={width} height={height} />
+                    </div>
+                    <div className="flex rounded-3xl p-2 gap-4 justify-around">
+                      <ReactIcon width={width} height={height} />
+                      <LaravelIcon width={width} height={height} />
+                      <BootstrapIcon width={width} height={height} />
+                    </div>
+                  </div>
+                  {/* <ul className="list-disc ml-6">
+                    <li>React (Proficient)</li>
+
+                    <li>Laravel (Proficient)</li>
+                    <li>Tailwind CSS (Actively using)</li>
+                    <li>Bootstrap (Proficient)</li>
+                  </ul> */}
+                </div>
+                <div className="card_bg p-6">
+                  <h3 className="text-xl font-semibold mb-2">
+                    Database & Backend
+                  </h3>
+                  <div className="flex bg-green-600/5 rounded-3xl p-2 gap-4 justify-around">
+                    <PostgreSQLIcon width={width} height={height} />
+                    <NodeJs width={width} height={height} />
+                  </div>
+                  <div className="flex rounded-3xl p-2 gap-4 justify-around">
+                    <MongoDBIcon width={width} height={height} />
+                    <MySQLIcon width={width} height={height} />
+                  </div>
+
+                  {/* <ul className="list-disc ml-6">
+                    <li>MongoDB (Proficient)</li>
+                    <li>PostgreSQL (Actively using)</li>
+                    <li>MySQL (Proficient)</li>
+                    <li>Node.js (Proficient)</li>
+                  </ul> */}
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
-      <div className="grid sm:col-span-2 gap-10">
-        <div className="grid">
-          <h1 className=" text-3xl uppercase font-bold">About me</h1>
-          <p>
-            Sit amet luctussd fav venenatis, lectus magna fringilla inis urna,
-            porttitor rhoncus dolor purus non enim praesent in elementum sahas
-            facilisis leo, vel fringilla est ullamcorper eget nulla facilisi
-            etisam dignissim diam quis enim lobortis viverra orci sagittis eu
-            volutpat odio facilisis mauris sit. Scelerisque fermentum duisi
-            faucibus in ornare quam sisd sit amet luctussd fav venenatis, lectus
-            magna fringilla zac urna, porttitor rhoncus dolor purus non enim
-            praesent cuz elementum sahas facilisis leot.
-          </p>
-        </div>
-        <div className="grid">
-          <h1 className="text-3xl uppercase">My skills</h1>
-          <ul>
-            <li>HTML/CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-          </ul>
-        </div>
+      <div className="grid sm:grid-cols-2 gap-8">
+        {/* Experience Section */}
+        <section className="py-12 card_bg px-4 ">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-6">Experience</h2>
+            <div className="grid grid-cols-1 gap-8">
+              <div>
+                <h3 className="text-2xl font-bold mb-2">
+                  Web Developer / Designer
+                </h3>
+                <p className="text-gray-500 mb-2">
+                  Gharagan Multipurpose Company Pvt. Ltd. | May 2022 – May 2023
+                </p>
+                <ul className="list-disc ml-6">
+                  <li>
+                    Developed and maintained responsive web applications using
+                    React.js, Node.js, and MongoDB.
+                  </li>
+                  <li>
+                    Designed logos, banners, posters, and branding materials.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section className="py-12 card_bg px-4">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-6">Education</h2>
+            <div className="grid grid-cols-1 gap-8">
+              <div>
+                <h3 className="text-2xl font-bold mb-2">
+                  BSc. (Hons) in Computing (Software Engineering)
+                </h3>
+                <p className="text-gray-500 mb-2">
+                  NAMI College affiliated with Northampton University | 2018 –
+                  2021
+                </p>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-2">
+                  MSc. Software Engineering
+                </h3>
+                <p className="text-gray-500 mb-2">
+                  West London University | 2023 – 2024
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="grid sm:grid-cols-2 gap-8">
+        {/* Credentials Section */}
+        <section className=" card_bg p-4">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-6">Credentials</h2>
+            <div className="grid grid-cols-1 gap-8">
+              <div>
+                <h3 className="text-2xl font-bold mb-2">Hult Prize Nami</h3>
+                <p className="text-gray-700">
+                  Organizing Committee Member as a Graphic Designer
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="card_bg p-4">
+          <div className="container mx-auto px-4">
+            <div className=""></div>
+            <div className="flex">
+              <div>
+                <h1 className="font-bold text-4xl">Let&apos;s </h1>
+                <h2 className="font-bold text-4xl">Work Together.</h2>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
