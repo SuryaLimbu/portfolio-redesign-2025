@@ -1,12 +1,14 @@
 import Image from "next/image";
 import ProfileGrid from "./profile_grid";
 import { VelocityScroll } from "../ui/scroll-based-velocity";
-import { Meteors } from "../meteors";
+// import { Meteors } from "../meteors";
 import OribitingSkillsCircles from "./oribitingSkillsCircles";
 import { DownloadIcon, EyeIcon } from "lucide-react";
 import Link from "next/link";
-
+import { Ripple } from "../magicui/ripple";
+// import { BorderBeam } from "../magicui/border-beam";
 export default function BentoGrid() {
+  const cv = "cv.pdf";
   return (
     <div className="grid gap-10">
       {/* first col */}
@@ -20,15 +22,15 @@ export default function BentoGrid() {
         > */}
         <div className="card_bg flex flex-col items-center justify-center overflow-hidden">
           <div className="flex rounded-3xl items-center">
-            <Meteors number={30} />
             <Image
               src="/_DSC8303.png"
               //  src="/bg1.png"
               alt="profile image"
               width="250"
               height="400"
-              className=" scale-125 opacity-80"
+              className=" scale-125 opacity-80 z-50"
             />
+            <Ripple className=" opacity-30" />
           </div>
         </div>
 
@@ -61,7 +63,7 @@ export default function BentoGrid() {
 
             <div className="flex gap-6">
               <a
-                href="https://www.linkedin.com/in/your-linkedin-username/"
+                href="https://www.linkedin.com/in/surya-man-kedem/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-lg font-medium"
@@ -69,7 +71,7 @@ export default function BentoGrid() {
                 <EyeIcon />
               </a>
 
-              <a href="">
+              <a href={cv} download>
                 <DownloadIcon />
               </a>
             </div>

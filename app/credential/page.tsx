@@ -21,6 +21,7 @@ import PostgreSQLIcon from "@/components/icons/postgresql";
 import PythonIcon from "@/components/icons/python";
 import ReactIcon from "@/components/icons/react";
 import TailwindIcon from "@/components/icons/tailwindcss";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 const width = 40;
 const height = 40;
@@ -45,7 +46,7 @@ export default function Page() {
     {
       icons: <LinkedInIcon width={28} height={28} />,
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/suryamankedem/",
+      url: "https://www.linkedin.com/in/surya-man-kedem/",
     },
   ];
   return (
@@ -70,10 +71,12 @@ export default function Page() {
                 </a>
               ))}
             </p>
+
             <Button className="cursor-pointer z-50">
-              <a href="/contactUs">Contact Me</a>
+              <a href="mailto:suryamankedem@gmail.com">Contact Me</a>
             </Button>
           </div>
+          {/* <BorderBeam duration={8} size={100} /> */}
         </div>
 
         {/* Right Section */}
@@ -116,6 +119,7 @@ export default function Page() {
                     <li>HTML (Proficient)</li>
                     <li>CSS (Proficient)</li>
                   </ul> */}
+                  <BorderBeam duration={6} size={100} />
                 </div>
                 <div className="card_bg p-6">
                   <h3 className="text-xl font-semibold mb-4">
@@ -139,6 +143,7 @@ export default function Page() {
                     <li>Tailwind CSS (Actively using)</li>
                     <li>Bootstrap (Proficient)</li>
                   </ul> */}
+                  <BorderBeam duration={5} size={100} />
                 </div>
                 <div className="card_bg p-6">
                   <h3 className="text-xl font-semibold mb-2">
@@ -159,6 +164,7 @@ export default function Page() {
                     <li>MySQL (Proficient)</li>
                     <li>Node.js (Proficient)</li>
                   </ul> */}
+                  <BorderBeam duration={4} size={100} />
                 </div>
               </div>
             </div>

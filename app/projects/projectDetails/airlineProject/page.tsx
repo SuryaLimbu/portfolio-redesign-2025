@@ -47,7 +47,7 @@ export default function Page() {
         {/* Hero Image */}
         <div className="relative aspect-video rounded-2xl overflow-hidden">
           <Image
-            src="/Graphic-Web-Design.png"
+            src="/projects/flight.png"
             fill
             alt="Project preview"
             className="object-cover"

@@ -28,7 +28,7 @@ export default function ProjectCard({
       <p className=" opacity-50">{description}</p>
 
       <div className="flex gap-2 items-center">
-        <div className="flex gap-6 items-center">
+        <div className="flex gap-6 items-center py-2">
           {link != null ? (
             <a
               href={link}

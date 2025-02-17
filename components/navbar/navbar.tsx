@@ -18,8 +18,8 @@ export default function Navbar() {
   const menuItems = [
     { label: "All", href: "/" },
     { label: "Projects", href: "/projects" },
-    { label: "Experience", href: "/experience" },
-    { label: "Skills", href: "/skills" },
+    { label: "About", href: "/credential" },
+    
   ];
 
   useEffect(() => {

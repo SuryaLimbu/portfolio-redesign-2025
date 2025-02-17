@@ -35,7 +35,7 @@ export const Meteors = ({ number = 20, ...props }: MeteorsProps) => {
           {...props}
         >
           {/* Meteor Tail */}
-          <div className="pointer-events-none absolute top-1/2 -z-10 h-px w-[50px] -translate-y-1/2 bg-gradient-to-r from-slate-500 to-transparent" />
+          <div className="pointer-events-none absolute top-1/2 -z-10 h-px w-[50px] -translate-y-1/2 bg-gradient-to-r from-slate-500 to-transparent " />
         </span>
       ))}
     </>

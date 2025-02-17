@@ -6,6 +6,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 
 import CursorGradient from "@/components/CursorGradient";
+// import { Meteors } from "@/components/meteors";
+import Footer from "@/components/footer/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -74,9 +76,13 @@ export default function RootLayout({
               },
             }}
           />
-          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 text-base space-y-4 z-10">
+          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 text-base space-y-4 z-10 ">
             <Navbar />
-            {children}
+            <div className="sm:mx-10">
+              {/* <Meteors number={30}/> */}
+              {children}
+            </div>
+            <Footer />
           </div>
           <Analytics />
         </ThemeProvider>

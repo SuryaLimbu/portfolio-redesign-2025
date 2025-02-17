@@ -38,7 +38,7 @@ export default function page() {
               live="https://online-flight-booking-system.vercel.app"
               title="Low-Cost Airline Booking System"
               description="Next gen bot for crypto-currencies."
-              imageUrl="https://necatikcl.dev/images/works/cryptosea.png"
+              imageUrl="/projects/flight.png"
             />
           </div>
           <div>
